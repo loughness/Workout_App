@@ -1,6 +1,6 @@
 import datetime
 
-class Workout(name):
+class Workout():
     def __init__(self):
         self.date = datetime.datetime.now()
         # self.start_note = ""
