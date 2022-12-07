@@ -1,16 +1,22 @@
-
+from setup import Setup
 
 class Load_Save:
-    def save(self):
+    def __init__(self):
+        self.date = Setup.name
+        self.start_note =  "1"
+        self.conclusion = "2"
+        self.end_note = "3"
+        self.end_score = "4"
 
 
-        with open('workout.txt', 'a') as file:
+    def save(self,name, workout):
+        with open(f'workouts/{name}.txt', 'a') as file:
             file.write(
-                str(self.date) + " " + self.start_note + " " + str(self.conclusion) + " " + self.end_note + " " + str(
-                    self.end_score) + "")
+                str(name) + " \n###\n" + workout + "\n###\n")
+        print(f"FILE SAVED AS {self.date}")
 
 
-    def load(self):
-        with open('workout.txt', 'r') as file:
+    def load(self, title):
+        with open(f'workouts/{title}.txt', 'r') as file:
             for line in file:
                 print(line)

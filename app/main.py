@@ -19,7 +19,7 @@ class StartingProcedure():
                 self.setup.run()
                 self.workout.exercise()
                 self.setup.end()
-                self.ls.save()
+                # self.workout.save_file()
             elif choice == "2":
                 self.ls.load()
             elif choice == "3":

@@ -1,4 +1,5 @@
 import datetime
+from load_save import Load_Save
 
 class Workout():
     def __init__(self):
@@ -9,6 +10,13 @@ class Workout():
         self.ex_name = ""
         self.weight = []
         self.tempo = []
+        self.workouts = {}
+        # self.save_file = Load_Save.save()
+
+        self.date = datetime.datetime.now()
+        self.workout_title = ""
+        self.entry_note = ""
+        self.ex_move = {}
 
     def exercise(self):
         self.ex_name = input("Exercise Name: ")
@@ -58,6 +66,11 @@ class Workout():
         #     tempo.append(self.tempo)
 
         return {'Weight': self.weight, 'Tempo': self.tempo}
+
+    def save_workout(self, name):
+        num_workouts = len(self.workouts)
+
+        pass
 
     def __str__(self):
         return self.name + " " + str(self.reps) + " " + str(self.weight)

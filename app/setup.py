@@ -1,13 +1,12 @@
 import datetime
 class Setup:
 
-    def __init__(self):
-        self.fname = ""
-
-
     def start_note(self):
-
-        print("Start Note:\n")
+        print("########################################")
+        print("##        ##         ##       ##      ##")
+        print("########################################")
+        print("^ ^ ** ** ** ** ** ** ** ** ** ** ** ^ ^")
+        print("\t\tStart Note:\n")
         self.start_note = input()
         return self.start_note
 
@@ -26,7 +25,7 @@ class Setup:
 
         title = f"{day} {month_word} {year}"
         title = str(title)
-        # print(title)
+
         return title
 
     def end(self):
@@ -36,15 +35,23 @@ class Setup:
         return self
 
     def show(self):
+        self.create_save_file(self.name())
         print("\n")
         print(self.name())
         print("=========")
         self.start_note()
+
+    def create_save_file(self, title):
+        with open(f'workouts/{title}.txt', 'a') as file:
+            file.write(
+                str(title) + " \n###\n"
+            )
+        print(f"FILE CREATED AS '{title}.txt'")
 
 
     def run(self):
         self.show()
 
 
-setup = Setup()
-setup.name()
+# setup = Setup()
+# setup.name()
