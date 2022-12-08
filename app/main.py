@@ -17,7 +17,7 @@ class StartingProcedure():
             choice = self.start_menu.run()
             if choice == "1":
                 self.setup.run()
-                self.workout.exercise()
+                self.workout.new_exercise()
                 self.setup.end()
                 # self.workout.save_file()
             elif choice == "2":
