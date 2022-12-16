@@ -1,6 +1,9 @@
 import datetime
 class Setup:
 
+    def __init__(self):
+        self.start_note = ""
+
     def set_start_note(self):
         print("########################################")
         print("##        ##         ##       ##      ##")
@@ -39,10 +42,11 @@ class Setup:
         print("\n")
         print(self.name())
         print("=========")
+        self.create_save_file(self.name())
         self.set_start_note()
 
     def create_save_file(self, title):
-        with open(f'Workout_App/workouts/TEST_FILE.txt', 'w') as file:
+        with open(f'workouts/{title}.txt', 'w') as file:
             file.write(
                 str(title) + " \n###\n"
             )
