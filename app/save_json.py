@@ -47,7 +47,7 @@ exercise_json_template = '''
 }
 '''
 
-class json_obj:
+class Json_obj:
 
     def __init__(self):
         self.data = json.loads(workout_json_template)
@@ -116,58 +116,53 @@ class json_obj:
         print(self.workout_data)
         print("***")
 
+    def create_file(self, name_of_file):
+        # heading = name_of_file
+        with open(f"workouts/{name_of_file}.json", "w") as json_file:
+            # json.dump("", json_file)
+            pass
 
 
-new_file = json_obj()
-new_file.set_date(23)
-new_file.set_title("December the fifteenth")
-new_file.set_start_note("Working all over today")
-new_file.overview()
-new_file.create_exercise("Curls", 3, 12)
-new_file.add_set(14,12,1,"paced")
-new_file.add_set(16,12,1,"paced")
-new_file.add_set(20,8,3,"slow")
-new_file.overview()
-new_file.create_exercise("Bench", 4, 10)
-new_file.add_set(60,12,2,"paced")
-new_file.overview()
-new_file.create_exercise("Pull-ups", 5, 10)
-new_file.add_set(0,12,1,"paced")
-new_file.add_exercise_note("Tough on the back")
-new_file.set_end_note("Fun day pushing hard!")
-new_file.set_workout_score(2)
-new_file.overview()
+    def save_data(self):
+        # todo:
+        # check to see if there is already a file present called XXXXX
+
+        file_name = self.workout_data["title"]
+        file = self.workout_data
+        # file = {"workouts": self.workout_data}
+        with open(f"../workouts/{file_name}.json", "w") as json_file:
+            json.dump(file, json_file)
+        # create the file
+        # save
+        # confirm
 
 
+    def load_print(self):
+        # todo:
+        # this feature will have to come later
+        # but below is the basic idea
+        print("\nLOADING DONE\n")
+        with open(f'{self.workout_data["title"]}.json') as file:
+            data = json.load(file)
+        print(data)
 
-
-#
-# data = json.loads(workout_json_template)
-# # GET ()
-# workout_dict = data["workout"]
-# workout_date = workout_dict["date"]
-# workout_title = workout_dict["title"]
-# workout_start_note = workout_dict["start_note"]
-# workout_exercises_list = workout_dict["exercises"]
-# workout_end_note = workout_dict["end_note"]
-# workout_rating = workout_dict["workout_rating"]
-# # SET ()
-#
-# workout_dict["workout_rating"] = 3
-#
-#
-#
-# j_sonify = json.dumps(workout_dict)
-#
-# print(j_sonify)
-
-
-# "sets":
-#                          [
-#                             {"weight": 12, "reps": 12, "tempo": "paced", "difficulty": 1},
-#                             {"weight": 14, "reps": 12, "tempo": "paced", "difficulty": 2},
-#                             {"weight": 16, "reps": 12, "tempo": "slow", "difficulty": 2}
-#                          ],
-
-
-
+# new_file = Json_obj()
+# new_file.set_date(23)
+# new_file.set_title("December the 22")
+# new_file.set_start_note("Working all over today")
+# new_file.overview()
+# new_file.create_exercise("Curls", 3, 12)
+# new_file.add_set(14,12,1,"paced")
+# new_file.add_set(16,12,1,"paced")
+# new_file.add_set(20,8,3,"slow")
+# new_file.overview()
+# new_file.create_exercise("Bench", 4, 10)
+# new_file.add_set(60,12,2,"paced")
+# new_file.overview()
+# new_file.create_exercise("Pull-ups", 5, 10)
+# new_file.add_set(0,12,1,"paced")
+# new_file.add_exercise_note("Tough on the back")
+# new_file.set_end_note("Fun day pushing hard!")
+# new_file.set_workout_score(2)
+# new_file.overview()
+# new_file.save_data()

@@ -1,7 +1,7 @@
 from start_menu import StartMenu
 from workout import Workout
 from load_save import Load_Save
-from setup import Setup
+from workout import Setup
 
 
 class StartingProcedure():
@@ -16,13 +16,11 @@ class StartingProcedure():
         while True:
             choice = self.start_menu.run()
             if choice == "1":
-                setup_start = self.setup.run() # -> setup_start IS A SETUP Class
-                current_workout = self.workout.new_exercise() # -> current_workout IS A WORKOUT Class
-                setup_end = self.setup.end()
+                # setup_start = self.setup.run() # -> setup_start IS A SETUP Class
+                current_workout = self.workout.run() # -> current_workout IS A WORKOUT Class
+                # setup_end = self.setup.end()
                 # self.workout.save_file()
-                print(f"THIS IS WHAT SETUP_START.start_note IS -> {setup_start.start_note}")
-                print(f"This is what a current_workout is {self.workout.ex_name}")
-                print(f"This is what a current_workout is {current_workout.name}")
+                # print(f"THIS IS WHAT SETUP_START.start_note IS -> {setup_start.start_note}")
 
             elif choice == "2":
                 self.ls.load()

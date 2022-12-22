@@ -1,3 +1,7 @@
+
+# CURRENTLY NOT NEEDED
+# - TRANSFERED TO WORKOUT.PY
+
 import datetime
 class Setup:
 
@@ -42,16 +46,7 @@ class Setup:
         print("\n")
         print(self.name())
         print("=========")
-        self.create_save_file(self.name())
         self.set_start_note()
-
-    def create_save_file(self, title):
-        with open(f'workouts/{title}.txt', 'w') as file:
-            file.write(
-                str(title) + " \n###\n"
-            )
-        print(f"FILE CREATED AS '{title}.txt'")
-
 
     def run(self):
         self.show()
